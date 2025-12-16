@@ -1,0 +1,460 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background-attachment: fixed;
+  overflow-x: hidden;
+}
+
+@layer base {
+  :root {
+    --background: 220 40% 98%;
+    --foreground: 222 84% 4.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 222 84% 4.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 222 84% 4.9%;
+    --primary: 217.2 91.2% 59.8%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 210 40% 96.1%;
+    --secondary-foreground: 222 84% 4.9%;
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215 20.2% 65.1%;
+    --accent: 122.4 39.4% 49.2%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 217.2 91.2% 59.8%;
+    --chart-1: 12 76% 61%;
+    --chart-2: 173 58% 39%;
+    --chart-3: 197 37% 24%;
+    --chart-4: 43 74% 66%;
+    --chart-5: 27 87% 67%;
+    --radius: 0.5rem;
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    /* Professional Data-Dense Dark Theme */
+    --background: 219 39% 11%; /* Deep Navy Blue (#0A1121) */
+    --foreground: 210 40% 98%; /* Off-White (#F9FAFB) */
+    --card: 217 33% 17%; /* Slightly lighter dark blue (#111827) */
+    --card-foreground: 210 40% 98%;
+    --popover: 219 39% 11%;
+    --popover-foreground: 210 40% 98%;
+    --primary: 217 91% 60%; /* Vibrant Blue (#3B82F6) */
+    --primary-foreground: 219 39% 11%;
+    --secondary: 217 91% 60%; /* Same as primary for consistency */
+    --secondary-foreground: 219 39% 11%;
+    --muted: 217 27% 45%; /* Medium Gray-Blue (#374151) */
+    --muted-foreground: 210 40% 80%; /* Light Gray (#D1D5DB) */
+    --accent: 160 84% 39%; /* Vibrant Green (#10B981) - for gains */
+    --accent-foreground: 219 39% 11%;
+    --destructive: 0 84% 60%; /* Vibrant Red (#EF4444) - for losses */
+    --destructive-foreground: 219 39% 11%;
+    --border: 217 27% 30%; /* Dark Border (#1F2937) */
+    --input: 219 39% 15%; /* Dark Input (#0F172A) */
+    --ring: 217 91% 60%; /* Vibrant Blue Ring */
+    --chart-1: 217 91% 60%; /* Blue */
+    --chart-2: 160 84% 39%; /* Green */
+    --chart-3: 0 84% 60%; /* Red */
+    --chart-4: 38 92% 50%; /* Amber */
+    --chart-5: 262 80% 50%; /* Purple */
+    --radius: 0.375rem; /* Slightly rounded corners */
+    --sidebar-background: 219 39% 13%; /* Slightly lighter than background */
+    --sidebar-foreground: 210 40% 98%;
+    --sidebar-primary: 217 91% 60%; /* Vibrant Blue */
+    --sidebar-primary-foreground: 219 39% 11%;
+    --sidebar-accent: 217 27% 30%; /* Dark accent */
+    --sidebar-accent-foreground: 217 91% 60%; /* Blue text */
+    --sidebar-border: 217 27% 25%; /* Dark Border */
+    --sidebar-ring: 217 91% 60%; /* Vibrant Blue Ring */
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/* Professional Data-Dense Design System */
+@layer components {
+  /* Button Styling - Clean and Professional */
+  button[type="submit"],
+  button.bg-primary,
+  .btn-primary {
+    position: relative;
+    font-weight: 600;
+    letter-spacing: 0.3px;
+    border: 1px solid hsl(217 91% 60%);
+    transition: all 0.2s ease;
+    text-transform: uppercase;
+    font-size: 0.875rem;
+  }
+
+  button[type="submit"]:hover,
+  button.bg-primary:hover,
+  .btn-primary:hover {
+    background-color: hsl(217 91% 70%);
+    border-color: hsl(217 91% 70%);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+  }
+
+  button[type="submit"]:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 6px rgba(59, 130, 246, 0.2);
+  }
+
+  /* Card Styling - Clean borders and subtle shadows */
+  .card {
+    position: relative;
+    border: 1px solid hsl(217 27% 30%);
+    background: linear-gradient(135deg, hsl(217 33% 17%) 0%, hsl(219 39% 11%) 100%);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+    transition: all 0.2s ease;
+    overflow: hidden;
+  }
+
+  .card:hover {
+    border-color: hsl(217 91% 60%);
+    box-shadow: 0 4px 16px rgba(59, 130, 246, 0.15);
+    transform: translateY(-2px);
+  }
+
+  /* Input Styling - Professional and clean */
+  input,
+  textarea,
+  select {
+    background-color: hsl(219 39% 15%);
+    border: 1px solid hsl(217 27% 30%);
+    color: hsl(210 40% 98%);
+    transition: all 0.2s ease;
+    font-weight: 500;
+    font-size: 0.9375rem;
+  }
+
+  input::placeholder,
+  textarea::placeholder {
+    color: hsl(217 27% 45%);
+  }
+
+  input:focus,
+  textarea:focus,
+  select:focus {
+    background-color: hsl(219 39% 17%);
+    box-shadow: 0 0 0 2px hsl(217 91% 60% / 0.2);
+    border-color: hsl(217 91% 60%);
+    outline: none;
+  }
+
+  /* Headline Typography - Clean and Professional */
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+    color: hsl(210 40% 98%);
+    line-height: 1.3;
+  }
+
+  h1 {
+    font-size: 2.5rem;
+  }
+
+  h2 {
+    font-size: 2rem;
+  }
+
+  h3 {
+    font-size: 1.5rem;
+  }
+
+  h4 {
+    font-size: 1.25rem;
+  }
+
+  /* Code Typography */
+  code,
+  pre {
+    font-family: 'IBM Plex Mono', monospace;
+    background: hsl(219 39% 15%);
+    border: 1px solid hsl(217 27% 30%);
+    border-radius: 0.375rem;
+    padding: 0.5rem 0.75rem;
+    color: hsl(217 91% 60%);
+    font-weight: 500;
+    font-size: 0.875rem;
+  }
+
+  pre {
+    padding: 1.5rem;
+    overflow-x: auto;
+    margin: 1rem 0;
+  }
+
+  /* Success Text (Green for gains) */
+  .text-success,
+  .text-gain {
+    color: hsl(160 84% 39%);
+    font-weight: 600;
+  }
+
+  /* Danger Text (Red for losses) */
+  .text-danger,
+  .text-loss {
+    color: hsl(0 84% 60%);
+    font-weight: 600;
+  }
+
+  /* Primary Color Accent (Blue) */
+  .text-primary {
+    color: hsl(217 91% 60%);
+    font-weight: 600;
+  }
+
+  /* Muted Text */
+  .text-muted {
+    color: hsl(217 27% 45%);
+    font-weight: 500;
+  }
+
+  /* Smooth Transitions for All Interactive Elements */
+  button,
+  a,
+  input,
+  textarea,
+  select {
+    transition: all 0.2s ease;
+  }
+
+  /* Link Styling */
+  a {
+    color: hsl(217 91% 60%);
+    text-decoration: none;
+    font-weight: 600;
+    position: relative;
+  }
+
+  a:hover {
+    color: hsl(217 91% 70%);
+  }
+
+  a:active {
+    color: hsl(217 91% 50%);
+  }
+
+  /* Badge Styling */
+  .badge {
+    background: hsl(217 91% 60% / 0.15);
+    border: 1px solid hsl(217 91% 60% / 0.4);
+    color: hsl(217 91% 60%);
+    font-weight: 600;
+    padding: 0.375rem 0.75rem;
+    border-radius: 0.25rem;
+    text-transform: uppercase;
+    font-size: 0.75rem;
+    letter-spacing: 0.5px;
+  }
+
+  /* Table Styling - Data-dense and clean */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.9375rem;
+  }
+
+  th {
+    background: hsl(217 27% 25%);
+    border-bottom: 2px solid hsl(217 27% 30%);
+    padding: 0.75rem 1rem;
+    text-align: left;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: hsl(217 27% 45%);
+    font-size: 0.8125rem;
+  }
+
+  td {
+    border-bottom: 1px solid hsl(217 27% 25%);
+    padding: 0.75rem 1rem;
+    transition: all 0.2s ease;
+  }
+
+  tr:hover td {
+    background-color: hsl(217 33% 20%);
+  }
+
+  /* Scrollbar Styling */
+  ::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: hsl(219 39% 13%);
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: hsl(217 27% 35%);
+    border-radius: 5px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: hsl(217 91% 60%);
+  }
+
+  /* Selection Styling */
+  ::selection {
+    background: hsl(217 91% 60% / 0.3);
+    color: hsl(210 40% 98%);
+  }
+
+  /* Data Grid Layout */
+  .data-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+  }
+
+  /* Metric Card */
+  .metric-card {
+    background: linear-gradient(135deg, hsl(217 33% 17%) 0%, hsl(219 39% 11%) 100%);
+    border: 1px solid hsl(217 27% 30%);
+    border-radius: 0.375rem;
+    padding: 1.25rem;
+    transition: all 0.2s ease;
+  }
+
+  .metric-card:hover {
+    border-color: hsl(217 91% 60%);
+    box-shadow: 0 4px 12px rgba(59, 130, 246, 0.1);
+  }
+
+  .metric-label {
+    font-size: 0.8125rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: hsl(217 27% 45%);
+    margin-bottom: 0.5rem;
+  }
+
+  .metric-value {
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: hsl(210 40% 98%);
+    font-family: 'IBM Plex Mono', monospace;
+  }
+
+  .metric-change {
+    font-size: 0.875rem;
+    font-weight: 600;
+    margin-top: 0.5rem;
+  }
+
+  .metric-change.positive {
+    color: hsl(160 84% 39%);
+  }
+
+  .metric-change.negative {
+    color: hsl(0 84% 60%);
+  }
+
+  /* Two-Column Layout for Dashboard */
+  .dashboard-layout {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 1.5rem;
+    padding: 1.5rem;
+  }
+
+  @media (max-width: 1200px) {
+    .dashboard-layout {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  /* Chart Container */
+  .chart-container {
+    background: linear-gradient(135deg, hsl(217 33% 17%) 0%, hsl(219 39% 11%) 100%);
+    border: 1px solid hsl(217 27% 30%);
+    border-radius: 0.375rem;
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+
+  /* Section Header */
+  .section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.25rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid hsl(217 27% 30%);
+  }
+
+  .section-header h2 {
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin: 0;
+  }
+
+  .section-header a {
+    font-size: 0.875rem;
+    color: hsl(217 91% 60%);
+    text-decoration: none;
+  }
+
+  /* Sidebar Styling */
+  .sidebar {
+    background: linear-gradient(135deg, hsl(219 39% 13%) 0%, hsl(219 39% 11%) 100%);
+    border: 1px solid hsl(217 27% 30%);
+    border-radius: 0.375rem;
+    padding: 1.5rem;
+  }
+
+  /* Status Indicator */
+  .status-indicator {
+    display: inline-block;
+    width: 0.5rem;
+    height: 0.5rem;
+    border-radius: 50%;
+    margin-right: 0.5rem;
+  }
+
+  .status-indicator.open {
+    background-color: hsl(217 91% 60%);
+  }
+
+  .status-indicator.closed {
+    background-color: hsl(217 27% 45%);
+  }
+}
